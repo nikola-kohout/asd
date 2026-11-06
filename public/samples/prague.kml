@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Prague sample</name>
+    <Style id="red"><LineStyle><color>ff3c3cff</color><width>4</width></LineStyle>
+      <PolyStyle><color>553c3cff</color></PolyStyle></Style>
+    <Folder>
+      <name>Places</name>
+      <Placemark><name>Prague Castle</name><description>Pražský hrad</description>
+        <Point><coordinates>14.4005,50.0909,0</coordinates></Point></Placemark>
+      <Placemark><name>Charles Bridge</name><description>Karlův most</description>
+        <Point><coordinates>14.4114,50.0865,0</coordinates></Point></Placemark>
+      <Placemark><name>Old Town Square</name>
+        <Point><coordinates>14.4208,50.0875,0</coordinates></Point></Placemark>
+    </Folder>
+    <Placemark><name>Royal Route</name><styleUrl>#red</styleUrl>
+      <LineString><tessellate>1</tessellate><coordinates>
+        14.4275,50.0870,0 14.4208,50.0875,0 14.4150,50.0862,0 14.4114,50.0865,0 14.4040,50.0880,0 14.4005,50.0909,0
+      </coordinates></LineString></Placemark>
+    <Placemark><name>Kampa island</name><styleUrl>#red</styleUrl>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>
+        14.4067,50.0858,0 14.4088,50.0866,0 14.4103,50.0835,0 14.4085,50.0818,0 14.4067,50.0858,0
+      </coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+  </Document>
+</kml>
