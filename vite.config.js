@@ -7,8 +7,8 @@ const cesiumSource = resolve(import.meta.dirname, 'node_modules/cesium/Build/Ces
 const cesiumBaseUrl = 'cesium'
 
 // Cesium loads Workers, Assets, Widgets and ThirdParty at runtime from
-// CESIUM_BASE_URL. In dev we serve them straight from node_modules; on build
-// we copy them into dist/cesium.
+// window.CESIUM_BASE_URL (set in kml.html). In dev we serve them straight from
+// node_modules; on build we copy them into dist/cesium.
 function cesiumStatic() {
   let outDir
   return {
@@ -33,9 +33,8 @@ function cesiumStatic() {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), cesiumStatic()],
-  define: {
-    CESIUM_BASE_URL: JSON.stringify(`/${cesiumBaseUrl}`),
-  },
+  // Relative asset paths so the build works under any subpath (e.g. GitHub Pages /asd/).
+  base: './',
   build: {
     chunkSizeWarningLimit: 6000,
     rollupOptions: {
